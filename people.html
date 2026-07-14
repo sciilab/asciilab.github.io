@@ -468,17 +468,42 @@
             border-top: 1px solid var(--border);
         }
 
-        .collab-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 20px;
-        }
-
+        /* Updated Collaborator Cards with Image Support */
         .collab-card {
             padding: 20px;
             border-radius: var(--radius);
             background: var(--bg-card);
             border-left: 3px solid var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            transition: var(--transition);
+        }
+
+        .collab-card:hover {
+            box-shadow: var(--shadow-sm);
+            transform: translateY(-3px);
+        }
+
+        .collab-img {
+            width: 65px;
+            height: 65px;
+            flex-shrink: 0;
+            border-radius: 50%;
+            overflow: hidden;
+            background-color: #E2E8F0;
+            border: 2px solid #fff;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .collab-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .collab-info {
+            flex: 1;
         }
 
         .collab-name {
@@ -497,8 +522,26 @@
             font-family: var(--font-mono);
             font-size: 0.75rem;
             color: var(--accent);
-            margin-top: 8px;
+            margin-top: 4px;
             display: block;
+        }
+		/* 1. This forces a proper multi-column grid instead of a single list */
+        .collab-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); 
+            gap: 30px; 
+        }
+
+        /* 2. This makes the professor's image 30% larger so it doesn't look too small */
+        .collab-img {
+            width: 85px;  
+            height: 85px; 
+            flex-shrink: 0;
+            border-radius: 50%;
+            overflow: hidden;
+            background-color: #E2E8F0;
+            border: 3px solid #fff;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.08);
         }
 
         /* Footer */
@@ -676,8 +719,7 @@
                         <div class="profile-role">Project Lead</div>
                         <p class="profile-topic"><strong>Project:</strong> Capacity Building for Human Resource Development for Unmanned Aerial System</p>
                         <div class="profile-socials">
-                            <a href="#" class="social-icon">Email</a>
-                            <a href="#" class="social-icon">LinkedIn</a>
+                            <a href="mailto:chiranjibg@iitbhilai.ac.in" class="social-icon">Email</a>
                         </div>
                     </div>
                 </div>
@@ -685,14 +727,14 @@
                 <!-- PhD Student -->
                 <div class="profile-card">
                     <div class="profile-img-container">
-                        <img src="https://media.licdn.com/dms/image/v2/D4D03AQHy94Fe6CR49Q/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1730375632133?e=1785369600&v=beta&t=dFrsSdGkKKEEUVShwdtmhaNeDCqSJO5jfyEdC-TXrZo" alt="Dr. Dibakar Roy">
+                        <img src="https://media.licdn.com/dms/image/v2/D4D03AQHy94Fe6CR49Q/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1730375632133?e=1785369600&v=beta&t=dFrsSdGkKKEEUVShwdtmhaNeDCqSJO5jfyEdC-TXrZo" alt="Dr. Dibakar Roy">           
                     </div>
                     <div class="profile-info">
                         <h4 class="profile-name">Dr. Dibakar Roy</h4>
                         <div class="profile-role">Post Doctoral Student</div>
                         <p class="profile-topic"><strong>Thesis:</strong> Quality Assessment of Fruits and Fruit Juice using Bio Impedance Spectroscopy and Machine Learning</p>
                         <div class="profile-socials">
-                            <a href="#" class="social-icon">Email</a>
+                            <a href="mailto:dibakar@iitbhilai.ac.in" class="social-icon">Email</a>
                         </div>
                     </div>
                 </div>
@@ -707,7 +749,7 @@
                         <div class="profile-role">PhD Student</div>
                         <p class="profile-topic"><strong>Research:</strong> ExoSkeleton Design and Control</p>
                         <div class="profile-socials">
-                            <a href="#" class="social-icon">Email</a>
+                            <a href="mailto:yogendrakumar@iitbhilai.ac.in" class="social-icon">Email</a>
                         </div>
                     </div>
                 </div>
@@ -722,7 +764,7 @@
                         <div class="profile-role">PhD Student</div>
                         <p class="profile-topic"><strong>Research:</strong> Underwater UAV for Laser Welding</p>
                         <div class="profile-socials">
-                            <a href="#" class="social-icon">Email</a>
+                            <a href="mailto:arif@iitbhilai.ac.in" class="social-icon">Email</a>
                         </div>
                     </div>
                 </div>
@@ -737,7 +779,7 @@
                         <div class="profile-role">PhD Student</div>
                         <p class="profile-topic"><strong>Research:</strong> PoC Device, Bioexcretion Sensing</p>
                         <div class="profile-socials">
-                            <a href="#" class="social-icon">Email</a>
+                            <a href="mailto:saranshchourey@iitbhilai.ac.in" class="social-icon">Email</a>
                         </div>
                     </div>
                 </div>
@@ -752,9 +794,9 @@
                         <div class="profile-role">PhD Student</div>
                         <p class="profile-topic"><strong>Research:</strong> Underwater UAV for Laser Welding & ROV Inspection Systems</p>
                         <div class="profile-socials">
-                            <a href="#" class="social-icon">Email</a>
-                            <a href="#" class="social-icon">LinkedIn</a>
-                            <a href="#" class="social-icon">ORCID</a>
+                            <a href="mailto:souravroy@iitbhilai.ac.in" class="social-icon">Email</a>
+                            <a href="https://www.linkedin.com/in/imsr07/" class="social-icon">LinkedIn</a>
+                            <a href="https://scholar.google.com/citations?user=lRxssfEAAAAJ&hl=en" class="social-icon">Google Scholar</a>
                         </div>
                     </div>
                 </div>
@@ -992,40 +1034,69 @@
             <div class="collab-grid">
                 
                 <div class="collab-card">
-                    <h4 class="collab-name">Dr. Kaushik Bandyopadhyay</h4>
-                    <div class="collab-dept">Associate Professor, ME Dept.</div>
-                    <span class="collab-inst">IIT Bhilai</span>
-                </div>
-                <div class="collab-card">
-                    <h4 class="collab-name">Dr. Suchetan Pal</h4>
-                    <div class="collab-dept">Assistant Professor, Chemistry Dept.</div>
-                    <span class="collab-inst">IIT Bhilai</span>
-                </div>
-                
-                <div class="collab-card">
-                    <h4 class="collab-name">Dr. Soumajit Pramanik</h4>
-                    <div class="collab-dept">Assistant Professor, CSE Dept.</div>
-                    <span class="collab-inst">IIT Bhilai</span>
+                    <div class="collab-img">
+                        <img src="https://scholar.googleusercontent.com/citations?view_op=view_photo&user=DuHLjcUAAAAJ&citpid=4" alt="Dr. Kaushik Bandyopadhyay">
+                    </div>
+                    <div class="collab-info">
+                        <h4 class="collab-name">Dr. Kaushik Bandyopadhyay</h4>
+                        <div class="collab-dept">Associate Professor, ME Dept.</div>
+                        <span class="collab-inst">IIT Bhilai</span>
+                    </div>
                 </div>
                 
                 <div class="collab-card">
-                    <h4 class="collab-name">Dr. Asmita Bose</h4>
-                    <div class="collab-dept">Assistant Professor, EE Dept.</div>
-                    <span class="collab-inst">NIT Durgapur</span>
+                    <div class="collab-img">
+                        <img src="https://www.iitbhilai.ac.in/index.php?pid=img_suchetanp" alt="Dr. Suchetan Pal">
+                    </div>
+                    <div class="collab-info">
+                        <h4 class="collab-name">Dr. Suchetan Pal</h4>
+                        <div class="collab-dept">Assistant Professor, Chemistry Dept.</div>
+                        <span class="collab-inst">IIT Bhilai</span>
+                    </div>
                 </div>
                 
                 <div class="collab-card">
-                    <h4 class="collab-name">Dr. Saikat Sahoo</h4>
-                    <div class="collab-dept">Assistant Professor, Mechatronics Dept.</div>
-                    <span class="collab-inst">IIT Bhilai</span>
+                    <div class="collab-img">
+                        <img src="https://www.iitbhilai.ac.in/index.php?pid=img_soumajit" alt="Dr. Soumajit Pramanik">
+                    </div>
+                    <div class="collab-info">
+                        <h4 class="collab-name">Dr. Soumajit Pramanik</h4>
+                        <div class="collab-dept">Assistant Professor, CSE Dept.</div>
+                        <span class="collab-inst">IIT Bhilai</span>
+                    </div>
                 </div>
                 
-                
+                <div class="collab-card">
+                    <div class="collab-img">
+                        <img src="https://nitdgp.ac.in/uploads/img_Dr_Asmita_jpg.jpeg" alt="Dr. Asmita Bose">
+                    </div>
+                    <div class="collab-info">
+                        <h4 class="collab-name">Dr. Asmita Bose</h4>
+                        <div class="collab-dept">Assistant Professor, EE Dept.</div>
+                        <span class="collab-inst">NIT Durgapur</span>
+                    </div>
+                </div>
                 
                 <div class="collab-card">
-                    <h4 class="collab-name">Dr. Purnendu Das</h4>
-                    <div class="collab-dept">Assistant Professor, ME Dept.</div>
-                    <span class="collab-inst">IIT Bhilai</span>
+                    <div class="collab-img">
+                        <img src="https://www.iitbhilai.ac.in/index.php?pid=img_saikat" alt="Dr. Saikat Sahoo">
+                    </div>
+                    <div class="collab-info">
+                        <h4 class="collab-name">Dr. Saikat Sahoo</h4>
+                        <div class="collab-dept">Assistant Professor, Mechatronics Dept.</div>
+                        <span class="collab-inst">IIT Bhilai</span>
+                    </div>
+                </div>
+                
+                <div class="collab-card">
+                    <div class="collab-img">
+                        <img src="https://www.iitbhilai.ac.in/index.php?pid=img_purnendu" alt="Dr. Purnendu Das">
+                    </div>
+                    <div class="collab-info">
+                        <h4 class="collab-name">Dr. Purnendu Das</h4>
+                        <div class="collab-dept">Assistant Professor, ME Dept.</div>
+                        <span class="collab-inst">IIT Bhilai</span>
+                    </div>
                 </div>
                 
             </div>
